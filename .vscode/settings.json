@@ -1,0 +1,17 @@
+{
+// Default terminal: cmd.exe with the Zephyr .venv already activated
+"terminal.integrated.profiles.windows": {
+"Zephyr (cmd)": {
+"path": "C:\\Windows\\System32\\cmd.exe",
+"args": ["/k", "%USERPROFILE%\\zephyrproject\\.venv\\Scripts\\activate.bat"]
+}
+},
+"terminal.integrated.defaultProfile.windows": "Zephyr (cmd)",
+// IntelliSense reads the real compiler flags from the build folder
+"C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+// File type associations for the overlay / prj.conf
+"files.associations": {
+"*.overlay": "dts",
+"prj.conf": "kconfig"
+}
+}

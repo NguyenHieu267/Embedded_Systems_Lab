@@ -1,0 +1,89 @@
+/ {
+    model = "BKIT ARM4 (STM32F407ZGT6)";
+
+    /* USART1 console: PA9 TX, PA10 RX */
+    chosen {
+        zephyr,console = &usart1;
+        zephyr,shell-uart = &usart1;
+    };
+
+    /* GPIO LEDs and outputs */
+    leds {
+        compatible = "gpio-leds";
+
+        /* LED3 - Debug LED */
+        debug_led: led_debug {
+            gpios = <&gpioe 4 GPIO_ACTIVE_HIGH>;
+            label = "LED3 DEBUG (PE4)";
+        };
+
+        /* Y0 - Output status LED */
+        output_y0: led_y0 {
+            gpios = <&gpioe 5 GPIO_ACTIVE_HIGH>;
+            label = "OUTPUT Y0 (PE5)";
+        };
+
+        /* Y1 - Output status LED */
+        output_y1: led_y1 {
+            gpios = <&gpioe 6 GPIO_ACTIVE_HIGH>;
+            label = "OUTPUT Y1 (PE6)";
+        };
+    };
+
+    /* GPIO aliases used by application */
+    aliases {
+        led0 = &debug_led;
+        led1 = &output_y0;
+        led2 = &output_y1;
+
+        y0 = &output_y0;
+        y1 = &output_y1;
+
+        /delete-property/ led3;
+    };
+};
+
+/* USART1 configuration */
+&usart1 {
+    pinctrl-0 = <&usart1_tx_pa9 &usart1_rx_pa10>;
+    pinctrl-names = "default";
+    current-speed = <115200>;
+    status = "okay";
+};
+
+/* Disable unused Discovery peripherals */
+&usart2 {
+    status = "disabled";
+};
+
+&can1 {
+    status = "disabled";
+};
+
+&can2 {
+    status = "disabled";
+};
+
+&i2c1 {
+    status = "disabled";
+};
+
+&i2s3 {
+    status = "disabled";
+};
+
+&adc1 {
+    status = "disabled";
+};
+
+&timers2 {
+    status = "disabled";
+};
+
+&timers4 {
+    status = "disabled";
+};
+
+&usbotg_fs {
+    status = "disabled";
+};
