@@ -7,4 +7,4 @@ find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(bkit_blinky)
 
 # Add the application source files
-target_sources(app PRIVATE src/ex2.c)
+target_sources(app PRIVATE src/ex5.c)

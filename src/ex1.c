@@ -43,12 +43,10 @@ void thread_led_blinky(void *arg1, void *arg2, void *arg3)
     while (1) {
         /* Turn LED3 ON */
         gpio_pin_set_dt(&led, 1);
-        printk("LED3 ON - 1 second\n");
         k_msleep(1000);
 
         /* Turn LED3 OFF */
         gpio_pin_set_dt(&led, 0);
-        printk("LED3 OFF - 2 seconds\n");
         k_msleep(2000);
     }
 }

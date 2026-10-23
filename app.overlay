@@ -33,9 +33,6 @@
     /* GPIO aliases used by application */
     aliases {
         led0 = &debug_led;
-        led1 = &output_y0;
-        led2 = &output_y1;
-
         y0 = &output_y0;
         y1 = &output_y1;
 
